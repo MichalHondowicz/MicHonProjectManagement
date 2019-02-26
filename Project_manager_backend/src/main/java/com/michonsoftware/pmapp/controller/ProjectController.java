@@ -34,5 +34,4 @@ public class ProjectController {
         Project project1 = projectService.saveProject(project);
         return new ResponseEntity<>(project1, HttpStatus.CREATED);
     }
-
 }

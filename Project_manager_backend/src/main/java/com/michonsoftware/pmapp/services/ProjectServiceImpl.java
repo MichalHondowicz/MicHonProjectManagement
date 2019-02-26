@@ -1,6 +1,7 @@
 package com.michonsoftware.pmapp.services;
 
 import com.michonsoftware.pmapp.domain.Project;
+import com.michonsoftware.pmapp.exceptions.ProjectIdException;
 import com.michonsoftware.pmapp.repositories.ProjectRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,11 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project saveProject(Project project) {
-        return projectRepository.save(project);
+        try {
+            project.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
+            return projectRepository.save(project);
+        } catch (Exception ex) {
+            throw new ProjectIdException(project.getProjectIdentifier().toUpperCase());
+        }
     }
 }
