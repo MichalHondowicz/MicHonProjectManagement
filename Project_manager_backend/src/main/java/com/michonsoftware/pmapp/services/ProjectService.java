@@ -6,4 +6,6 @@ public interface ProjectService {
 
     Project saveProject(Project project);
 
+    Project findByProjectIdentifier(String projectId);
+
 }
