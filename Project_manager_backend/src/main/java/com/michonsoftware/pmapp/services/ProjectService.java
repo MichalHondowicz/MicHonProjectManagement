@@ -8,4 +8,8 @@ public interface ProjectService {
 
     Project findByProjectIdentifier(String projectId);
 
+    Iterable<Project> findAllProjects();
+
+    void deleteProjectByIdentifier(String projectIdentifier);
+
 }
