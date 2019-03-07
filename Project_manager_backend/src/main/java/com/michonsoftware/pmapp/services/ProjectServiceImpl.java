@@ -6,7 +6,6 @@ import com.michonsoftware.pmapp.exceptions.ProjectNotFoundException;
 import com.michonsoftware.pmapp.repositories.ProjectRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -29,12 +28,22 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project findByProjectIdentifier(String projectId) {
-
-        Project project = projectRepository.findByProjectIdentifier(projectId);
-
-        if (project == null) {
-            throw new ProjectNotFoundException(projectId);
-        }
-        return project;
+        return projectRepository
+                .findByProjectIdentifier(projectId)
+                .orElseThrow(() -> new ProjectNotFoundException(projectId));
     }
+
+    @Override
+    public Iterable<Project> findAllProjects() {
+        return projectRepository.findAll();
+    }
+
+    @Override
+    public void deleteProjectByIdentifier(String projectIdentifier) {
+        Project project = projectRepository
+                .findByProjectIdentifier(projectIdentifier)
+                .orElseThrow(() -> new ProjectNotFoundException(projectIdentifier));
+        projectRepository.delete(project);
+    }
+
 }
