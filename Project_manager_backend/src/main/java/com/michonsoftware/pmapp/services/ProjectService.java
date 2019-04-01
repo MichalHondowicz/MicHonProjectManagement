@@ -1,6 +1,6 @@
 package com.michonsoftware.pmapp.services;
 
-import com.michonsoftware.pmapp.domain.Project;
+import com.michonsoftware.pmapp.entity.Project;
 
 public interface ProjectService {
 

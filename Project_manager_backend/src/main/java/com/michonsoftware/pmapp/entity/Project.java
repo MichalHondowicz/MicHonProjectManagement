@@ -1,4 +1,4 @@
-package com.michonsoftware.pmapp.domain;
+package com.michonsoftware.pmapp.entity;
 
 import lombok.Data;
 

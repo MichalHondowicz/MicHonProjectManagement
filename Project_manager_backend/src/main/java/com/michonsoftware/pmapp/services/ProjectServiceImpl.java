@@ -1,6 +1,6 @@
 package com.michonsoftware.pmapp.services;
 
-import com.michonsoftware.pmapp.domain.Project;
+import com.michonsoftware.pmapp.entity.Project;
 import com.michonsoftware.pmapp.exceptions.ProjectIdException;
 import com.michonsoftware.pmapp.exceptions.ProjectNotFoundException;
 import com.michonsoftware.pmapp.repositories.ProjectRepository;

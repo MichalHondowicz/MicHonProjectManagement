@@ -1,6 +1,6 @@
 package com.michonsoftware.pmapp.controller;
 
-import com.michonsoftware.pmapp.domain.Project;
+import com.michonsoftware.pmapp.entity.Project;
 import com.michonsoftware.pmapp.services.ProjectService;
 import com.michonsoftware.pmapp.services.ValidationErrorService;
 import org.springframework.http.HttpStatus;
