@@ -6,6 +6,8 @@ import com.michonsoftware.pmapp.exceptions.ProjectNotFoundException;
 import com.michonsoftware.pmapp.repositories.ProjectRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -34,7 +36,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Iterable<Project> findAllProjects() {
+    public List<Project> findAllProjects() {
         return projectRepository.findAll();
     }
 
