@@ -1,6 +1,6 @@
 package com.michonsoftware.pmapp.controller;
 
-import com.michonsoftware.pmapp.domain.Project;
+import com.michonsoftware.pmapp.entity.Project;
 import com.michonsoftware.pmapp.services.ProjectService;
 import com.michonsoftware.pmapp.services.ValidationErrorService;
 import org.springframework.http.HttpStatus;
@@ -9,9 +9,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/projects")
+@CrossOrigin
 public class ProjectController {
 
     private final ProjectService projectService;
@@ -39,7 +41,7 @@ public class ProjectController {
     }
 
     @GetMapping
-    public Iterable<Project> getAllProjects() {
+    public List<Project> getAllProjects() {
         return projectService.findAllProjects();
     }
 
@@ -48,5 +50,4 @@ public class ProjectController {
         projectService.deleteProjectByIdentifier(projectId);
         return new ResponseEntity<>("Project with ID: " + projectId + " has been deleted", HttpStatus.OK);
     }
-
 }

@@ -1,6 +1,8 @@
 package com.michonsoftware.pmapp.services;
 
-import com.michonsoftware.pmapp.domain.Project;
+import com.michonsoftware.pmapp.entity.Project;
+
+import java.util.List;
 
 public interface ProjectService {
 
@@ -8,7 +10,7 @@ public interface ProjectService {
 
     Project findByProjectIdentifier(String projectId);
 
-    Iterable<Project> findAllProjects();
+    List<Project> findAllProjects();
 
     void deleteProjectByIdentifier(String projectIdentifier);
 
